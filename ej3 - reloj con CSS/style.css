@@ -9,13 +9,13 @@ h1, h2 {
     color: white;
     text-align: center;
 }
-.clock, .hh, .ss, .mm, .dot{
+.clock, .hh, .ss, .mm, .dot{ /* posición absoluta, centrada en eje x*/
     left: auto;
     right: auto;
     position: absolute;
 }
 .hh, .ss, .mm{
-    top: calc(30% + 125px);
+    top: calc(30% + 125px); /* posición inicial de las agujas = 30%(como la del reloj + 125px(readio del reloj) */
 }
 .clock{
     top: 30%;
@@ -29,44 +29,43 @@ h1, h2 {
     border: 3px solid rgb(72, 72, 72); 
     align-items: center;
     justify-content: center;
-    background-image: url('./bkgrnd_clock.png');
+    background-image: url('./bkgrnd_clock.png'); /* imagen de fondo de los numeros */
     background-size: cover;
     opacity: 50%;
 
 }
 .dot{
-    top: calc(30% + 125px - 10px);
+    top: calc(30% + 125px - 10px); /* centro del dot: 30%(como el clock) + 125px(radio clock) - 10px(radio dot) */
     width: 20px;
     height: 20px;
     border-radius: 50%;
     background-color:  rgb(72, 72, 72);
 }
-.ss{
+.ss{ /* segundero */
     background-color: rgb(189, 2, 2);
     width: 2px;
     height: 100px;
     border-radius: 1px;
-    animation: rotacion 60s steps(60) infinite;
+    animation: rotacion 60s steps(60) infinite; /* ejecuta el keyframe(360º) dividido en 60 pasos, y en 60s. En infinito, es decir ciclico*/
     transform-origin: top;
 }
-.mm{
+.mm{ /* minutero */
     background-color: rgb(203, 203, 203);
     width: 4px;
     height: 80px;
     border-radius: 2px;
-    animation: rotacion 3600s steps(60) infinite;
+    animation: rotacion 3600s steps(60) infinite; /* ejecuta el keyframe(360º) dividido en 60 pasos, pero en 3600s que conforman 1hra */
     transform-origin: top;
 }
-.hh{
+.hh{ /* hora */
     background-color: rgb(203, 203, 203);
     width: 6px;
     height: 50px;
     border-radius: 3px;
-    animation: rotacion 43200s linear infinite;
-    /* transform: rotate(-180deg); */
+    animation: rotacion 43200s linear infinite; /* la aguja de la hora es de movimiento continuo, y tarda en dar la vuelta 43200s, que es el equivalente a 12hs en seg*/
     transform-origin: top;
 }
-@keyframes rotacion {
-    0%      { transform: rotate(-180deg);  }
-    100%    { transform: rotate(+180deg); }
+@keyframes rotacion { /* este keyframe efectua una rotación de 360º */
+    0%      { transform: rotate(-180deg);  } /* comienza en -180 ya que posición 0º de la aguja es hacia abajo */
+    100%    { transform: rotate(+180deg); } /* final de la rotacion: -180º(pos inicial) + 360º(pos final) = 180º */
 }

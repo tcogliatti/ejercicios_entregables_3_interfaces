@@ -10,16 +10,20 @@ h1, h2 {
     color: white;
     text-align: center;
 }
-.card_dark {
-    width: calc(444px*0.65);
-    height: calc(767px*0.65);
-    border-radius: 8px;
-}
-.card_dark:hover{
+
+.card_dark:hover{ /* agrega una sombra cuando la el cursor pasa sobre la carta */
     box-shadow: 0 0 15px 10px rgba(255,255,255,0.05);
 }
+
 .card_dark{
+    width: calc(444px*0.65); /* ancho = 65% del ancho de la imagen en pixeles */
+    height: calc(767px*0.65);/* height =  65% del alto de la imagen en pixele*/
+    border-radius: 8px;
     background-image: url(./img/dark.png);
     background-size: cover;
-    transition: box-shadow .5s, transform .2s;
+    transition: box-shadow .5s, transform .2s; 
+    /* 
+        agrega una transición a la sombra del hover de 0.5s
+        agrega una transición a la transformación de 0.2s
+    */
 }
